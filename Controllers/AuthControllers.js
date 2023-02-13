@@ -42,6 +42,8 @@ module.exports.register = async (req, res, next) => {
       withCredentials: true,
       httpOnly: false,
       maxAge: maxAge * 1000,
+      sameSite: 'none',
+      secure: true,
     });
     res.status(201).json({ user: user._id, created: true });
   } catch (err) {
